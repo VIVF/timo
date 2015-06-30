@@ -1,7 +1,7 @@
 在GitHub多个帐号上添加SSH公钥
-####github
+github
 GitHub后台可以添加多个SSH Keys，但是同一个SSH Keys只能在添加在一个帐号上（添加时提示“Key is already in use”）。理由很容易想到，SSH公钥使用时相当于用户名密码，不可能两个不同的帐号使用同一个用户名密码。要想在多个GitHub帐号上添加公钥，就要在本地生成多个SSH Keys，每个GitHub帐号对应一个不同的SSH Keys。步骤如下：
-#####1、生成一个新的SSH KEY
+1、生成一个新的SSH KEY
 
 larry@thk:~$ ssh-keygen -t rsa -C 'git@webmaster.me'
 Generating public/private rsa key pair.
@@ -27,8 +27,8 @@ The key's randomart image is:
 larry@thk:~$ ssh-add ~/.ssh/id_rsa2
 Identity added: ~/.ssh/id_rsa2 (~/.ssh/id_rsa2)
 ~/.ssh/id_rsa2为新SSH Keys文件名，根据实际情况修改，保证每次不一样即可。
-#####2、打开新生成的~/.ssh/id_rsa2.pub文件，将里面的内容添加到GitHub后台。
-#####3、打开~/.ssh/config文件（没有则创建），添加一个Host：
+2、打开新生成的~/.ssh/id_rsa2.pub文件，将里面的内容添加到GitHub后台。
+3、打开~/.ssh/config文件（没有则创建），添加一个Host：
 
 #建一个github别名，新建的帐号使用这个别名做克隆和更新
 Host github2
